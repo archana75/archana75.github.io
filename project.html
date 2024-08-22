@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+{% block title %}SMX{% endblock title%}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="container-fluid">
+  <!--logo smx-->
+  <div class="row">
+    {% include "main/navbar_2.html" %}
+  </div>
+
+</div>
+
+<div class="container-fluid mb-3"
+style="background-image: url('{{bg_project.image.url}}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;">
+
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-12 col-md-5 my-auto col-12 col-md-5 my-auto  bg-white bg-opacity-50 py-3 pe-3 rounded-3 ms-3">
+            <!-- <div class="position-absolute top-50 start-0 translate-middle-y"> -->
+                <h1 class="display-4">Project</h1>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus laborum, repellat?</p>    
+        </div>
+    </div>
+    
+</div>
+</div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-3 mb-2 mx-5">
+            <div class="card" style="width: 29rem;">
+                <img src="{{project.thumbnail.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{project.title}}</h5>
+                  <p class="card-text">{{project.description|truncatewords:"25"}}
+                    <a style="text-decoration: none;" href="{% url 'project_detail' project.id %}">. . .</a>
+                  </p>
+                  
+                  <a href="{% url 'project_detail' project.id %}" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+{% endblock content %}

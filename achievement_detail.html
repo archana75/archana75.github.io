@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block title %}SMX{% endblock title%}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container-fluid">
+
+    <!--logo smx-->
+    <div class="row">
+      {% include "main/navbar_2.html" %}
+    </div>
+  
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+        <h1 class="text-center">{{achievement.event_name}}</h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col-6">
+            <img class="img-fluid rounded-5" src="{{achievement.thumbnail.url}}" alt="">
+            <h3 class="mt-3">{{achievement.created_by}}</h3>
+        </div>
+        <div class="col-6">
+            <div class="text-center mt-5 border rounded-3">
+                <p class="mt-3">"{{achievement.description}}"</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        {% endblock content %}
